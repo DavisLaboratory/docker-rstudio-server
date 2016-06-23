@@ -2,6 +2,7 @@ FROM ubuntu:14.04
 MAINTAINER Soroor Hediyeh Zadeh <hediyehzadeh.s@wehi.edu.au>
 RUN echo "deb http://cran.ms.unimelb.edu.au/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list   
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 
+RUN apt-get update
 RUN apt-get install software-properties-common 
 RUN add-apt-repository ppa:marutter/rdev
 RUN apt-get update  
