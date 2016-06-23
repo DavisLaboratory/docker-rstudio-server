@@ -3,7 +3,7 @@ MAINTAINER Soroor Hediyeh Zadeh <hediyehzadeh.s@wehi.edu.au>
 RUN echo "deb http://cran.ms.unimelb.edu.au/bin/linux/ubuntu trusty/" >> /etc/apt/sources.list   
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9 
 RUN apt-get update
-RUN apt-get install -y software-properties-common 
+RUN apt-get install -y software-properties-common libxml2-dev
 RUN add-apt-repository ppa:marutter/rdev
 RUN apt-get update  
 RUN apt-get upgrade -y
@@ -15,3 +15,4 @@ RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 EXPOSE 8787
 CMD ["/usr/bin/supervisord"]
+
