@@ -13,6 +13,8 @@ RUN rm /rstudio-server-0.99.902-amd64.deb
 RUN (adduser --disabled-password --gecos "" davislab && echo "davislab:davislab"|chpasswd)
 RUN mkdir -p /var/log/supervisor
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+RUN find /home/davislab -type d -exec chmod 755 {} \;
+RUN find /home/davislab -type f -exec chmod 644 {} \;
 EXPOSE 8787
 CMD ["/usr/bin/supervisord"]
 
